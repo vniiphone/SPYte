@@ -35,21 +35,6 @@
                 <span asp-validation-for="Stock" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedDate" class="control-label"></label>
-                <input asp-for="UpdatedDate" class="form-control" />
-                <span asp-validation-for="UpdatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeletedDate" class="control-label"></label>
-                <input asp-for="DeletedDate" class="form-control" />
-                <span asp-validation-for="DeletedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="CatId" class="control-label"></label>
                 <select asp-for="CatId" class="form-control" asp-items="ViewBag.CatId"></select>
                 <span asp-validation-for="CatId" class="text-danger"></span>
@@ -63,6 +48,16 @@
                 <label asp-for="Unit" class="control-label"></label>
                 <input asp-for="Unit" class="form-control" />
                 <span asp-validation-for="Unit" class="text-danger"></span>
+            </div>
+            @foreach (var image in ViewData["Images"] as List<Image> ?? new List<Image>())
+            {
+                <img src="@Url.Content("~/files/images/" + image.Url)" />
+            }
+
+
+
+            <div class="form-group">
+                <input type="file" id="files" name="files" class="form-control" multiple accept=".jpg,.jpeg,.png">
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -10,25 +10,6 @@
 <div>
     <h4>Product</h4>
     <hr />
-    <div>
-        <h4>Images</h4>
-        <hr />
-        @if (Model.Images != null && Model.Images.Count > 0)
-        {
-            <div class="row">
-                @foreach (var image in Model.Images)
-                {
-                    <div class="col-md-3">
-                        <img src="@Url.Content("~/files/images/" + image.Url)" class="img-fluid" />
-                    </div>
-                }
-            </div>
-        }
-        else
-        {
-            <p>No images found.</p>
-        }
-    </div>
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -90,8 +71,6 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Cat.Id)
         </dd>
-       
-
     </dl>
 </div>
 <div>
